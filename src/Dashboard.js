@@ -1,10 +1,12 @@
+// In your Dashboard.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
-import PdfViewer from './PdfViewer';  // Import the PdfViewer component
+import PdfViewer from './PdfViewer'; // Import PdfViewer
 
 const Dashboard = () => {
   const [file, setFile] = useState(null);
-  const [pdfPath, setPdfPath] = useState('');
+  const [pdfPath, setPdfPath] = useState(''); // State to hold the PDF path
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -21,9 +23,9 @@ const Dashboard = () => {
             'Content-Type': 'multipart/form-data',
           },
         });
-        const pdfPath = response.data.pdf_path;  // Get the PDF path from the response
-        setPdfPath(pdfPath);  // Save PDF path to state
+
         alert('File uploaded successfully');
+        setPdfPath(response.data.pdf_path); // Store the returned PDF path
       } catch (error) {
         console.error('File upload failed:', error);
         alert('File upload failed');
@@ -38,8 +40,7 @@ const Dashboard = () => {
       <input type="file" className="file-picker" onChange={handleFileChange} />
       {/* Upload button */}
       <button onClick={handleFileUpload}>Upload</button>
-
-      {/* Display PDF viewer once PDF is available */}
+      {/* Render PdfViewer if pdfPath is set */}
       {pdfPath && <PdfViewer pdfPath={pdfPath} />}
     </div>
   );
