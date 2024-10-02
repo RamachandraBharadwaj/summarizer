@@ -175,3 +175,154 @@ form div {
   letter-spacing: 1px;
 
 }
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar ul li a:hover {
+  color: #ddd;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+.app-container {
+  background-size: cover;
+  height: 100vh;
+}
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dashboard-content {
+  width: 80%; 
+  padding: 20px;
+  background-color: white; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+nav {
+  width: 100%;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Apply background image only for login/signup */
+.app-container.login-signup {
+  background-image: url('../public/cyberglobe.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Remove background image for dashboard */
+.app-container.dashboard {
+  background: none;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  margin: 0;
+}
+
+/* Dashboard layout */
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  width: 80%; /* Make the content width wider */
+  max-width: 1200px; /* Set a max-width to limit the size on large screens */
+  height: 100vh; /* Full height of the viewport */
+  margin-top: 60px; /* Ensure space for navbar */
+  overflow: auto;
+}
+
+/* Navbar styling - aligned to the left and stretching full width */
+.navbar {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Keep it on top of other elements */
+  display: flex;
+  justify-content: flex-start; /* Navbar aligned to the left */
+  align-items: center; /* Center items vertically */
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* File picker styling - free and outside of any card */
+.file-picker {
+  display: block;
+  width: 100%; /* Full width to fill the dashboard layout */
+  max-width: 600px; /* Limit max-width to make it more manageable */
+  margin: 20px auto; /* Center the file picker horizontally */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

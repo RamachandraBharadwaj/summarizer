@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 
-const LoginCard = () => {
+const LoginCard = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Login', { username, password });
+    // Hardcoded credentials for demo purposes
+    if (username === 'user' && password === 'password123') {
+      console.log('Login successful');
+      onLoginSuccess();  // Notify App.js that the login was successful
+    } else {
+      console.log('Invalid credentials');
+      alert('Invalid username or password');
+    }
   };
 
   return (

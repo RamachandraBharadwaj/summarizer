@@ -1,0 +1,43 @@
+/* Dashboard.css */
+
+/* Remove the background image for the dashboard */
+.dashboard {
+    background-image: none;
+    background-color: white; /* You can use any color */
+    min-height: 100vh; /* Ensure it takes up the full height of the page */
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+  }
+  
+  .dashboard-content {
+    padding: 20px;
+    flex-grow: 1; /* Ensure this section grows to take available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Ensure Navbar is at the top and styled properly */
+  .navbar {
+    background-color: #333; /* Set a background for the navbar */
+    color: white;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it's above other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* You can also add specific styles for the file uploader */
+  .file-uploader {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
