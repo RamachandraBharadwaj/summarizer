@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import Slider from 'react-slick';
+import LoginCard from './LoginCard';
+import SignupCard from './SignupCard';
 import './App.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-function App() {
+const App = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800, /* Adjust speed for smoother transition */
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: false, /* You can enable fade transition if preferred */
+    cssEase: "ease-in-out", /* For smooth easing */
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <div className="background-image"></div>
+      <h1 className="maintitle">
+        Web pentest report summarizer
+      </h1>
+      <Slider {...settings} className="slider">
+        <div>
+          <LoginCard />
+        </div>
+        <div>
+          <SignupCard />
+        </div>
+      </Slider>
     </div>
   );
-}
+};
 
 export default App;

@@ -36,3 +36,142 @@
     transform: rotate(360deg);
   }
 }
+
+.app-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Ensures content stays within bounds */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/cyberglobe.jpeg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.slider {
+  width: 100%;
+  max-width: 500px; /* Adjust max width */
+  padding: 0 20px; /* Slight padding for the slider to create space */
+  box-sizing: border-box;
+}
+
+.card {
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px;
+  max-width: 100%; /* Ensure the card's width doesn't exceed container */
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+input {
+  width: 100%; /* Set input width to 100% to stay inside the card */
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensures padding doesn't push elements out */
+}
+
+button {
+  width: 100%; /* Button should stay within the card */
+  padding: 12px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+/* Slider dots and arrows customization */
+.slick-prev, .slick-next {
+  z-index: 1;
+  font-size: 24px;
+  color: #fff;
+  transform: translateY(50px); /* Position the arrows lower */
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #fff;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #fff;
+}
+
+/* Fixes to ensure smooth transitions and padding */
+.slick-slide {
+  transition: transform 0.5s ease;
+  padding: 15px; /* Padding around each slide for smooth transitions */
+  box-sizing: border-box;
+}
+
+.slick-list {
+  padding: 0 10px; /* Adjust padding for the slider container */
+}
+
+.slick-track {
+  display: flex;
+  align-items: center; /* Ensures both slides are vertically aligned */
+}
+
+/* Additional styling for same height and responsiveness */
+.card {
+  height: auto; /* Cards will adjust height based on content */
+  min-height: 450px; /* Minimum height to ensure uniformity */
+}
+
+form {
+  width: 100%; /* Ensure the form takes up the full card width */
+}
+
+form div {
+  margin-bottom: 15px;
+  width: 100%; /* Ensure the input div takes full width */
+}
+
+.maintitle {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  letter-spacing: 1px;
+
+}
