@@ -46,7 +46,9 @@ const App = () => {
   return (
     <Router>
       <div className={`app-container ${!isLoggedIn ? "login-signup" : "dashboard"}`}>
-      <h1 className="maintitle">Web pentest report summarizer</h1>
+        {/* Conditionally render the <h1> based on login state */}
+        {!isLoggedIn && <h1 className="maintitle">Web pentest report summarizer</h1>}
+        
         <Routes>
           {/* Login and Signup page with background */}
           {!isLoggedIn ? (
