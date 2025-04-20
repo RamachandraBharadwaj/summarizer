@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concise Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #333; }
+    .info { margin-bottom: 20px; }
+    .info p { margin: 5px 0; }
+    .vulnerability { position: relative; margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f8f8f8; }
+    .vulnerability h3 { margin: 0 0 5px; color: #333; }
+    .vulnerability p { margin: 0; color: #555; }
+    .button-container { display: flex; gap: 10px; margin-top: 10px; }
+    button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+    button:hover { background-color: #0056b3; }
+    .collapsible { display: none; padding: 10px; border-top: 1px solid #ddd; margin-top: 10px; background-color: #f1f1f1; color: #333; }
+    .no-vulnerabilities { color: #777; font-style: italic; margin: 10px 0; }
+    .collapse-btn { position: absolute; top: 15px; right: 15px; background-color: #dc3545; }
+    .collapse-btn:hover { background-color: #c82333; }
+    .ask-question-btn {background-color: #28a745; /* Green color for Ask Question button */} 
+    .ask-question-btn:hover {background-color: #218838; /* Darker green on hover */}
+
+  </style>
+</head>
+<body>
+  <h1>Web PenTest Report Analysis</h1>
+  <h2>Concise Report</h2>
+  <div class="info">
+    <p><strong>Company Name:</strong> bad-store</p>
+    <p><strong>Website Link:</strong> <a href="http://localhost">http://localhost</a></p>
+    <p><strong>Date:</strong> 2024-11-29</p>
+    <p><strong>Time:</strong> 10:20:17</p>
+  </div>
+  <h2>High Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cross Site Scripting (Persistent)</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (17.6%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/79.html" target="_blank">79</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionhigh_1', 'mitigationhigh_1')">Description</button>
+                <button onclick="toggleSection('mitigationhigh_1', 'descriptionhigh_1')">Mitigation</button>
+                <button onclick="askQuestion('high_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionhigh_1', 'mitigationhigh_1')">Collapse</button>
+            <div id="descriptionhigh_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a users browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology. When an attacker gets a users browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise. There are three types of Cross-site Scripting attacks:</p>
+<p>non-persistent, persistent and DOM-based. Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victims knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the users browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash. Persistent attacks occur when the malicious code is submitted to a web site where its stored for a period of time. Examples of an attackers favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page, and the attack can be mounted. In summary, Cross-site Scripting (XSS) attacks are a type of web application attack that involves injecting malicious code into a users browser instance. The code is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology. When an attacker gets a users browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site, compromising the trust relationship between the user and the web site. There are three types of Cross-site Scripting attacks:</p>
+<p>non-persistent, persistent and DOM-based..</p>
+            </div>
+            <div id="mitigationhigh_1" class="collapsible" style="margin-top: 10px;">
+                <p>Understand the context in which your data will be used and the encoding that will be expected. Use structured mechanisms that automatically enforce the separation between data and code. To help mitigate XSS attacks against the user's session cookie, set the session cookie to be HttpOnly. Use an application firewall that can detect attacks against this weakness.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cross Site Scripting (Reflected)</h3>
+            <p><strong>Count:</strong> 4</p>
+            <p><strong>Count %:</strong> (23.5%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/79.html" target="_blank">79</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionhigh_2', 'mitigationhigh_2')">Description</button>
+                <button onclick="toggleSection('mitigationhigh_2', 'descriptionhigh_2')">Mitigation</button>
+                <button onclick="askQuestion('high_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionhigh_2', 'mitigationhigh_2')">Collapse</button>
+            <div id="descriptionhigh_2" class="collapsible" style="margin-top: 10px;">
+                <p>Summary Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a users browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology. When an attacker gets a users browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise. There are three types of Cross-site Scripting attacks:</p>
+<p>non-persistent, persistent and DOM-based. Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victims knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the users browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash. Persistent attacks occur when the malicious code is submitted to a web site where its stored for a period of time. Examples of an attackers favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page, and the attack can be mounted. In summary, Cross-site Scripting (XSS) attacks are a type of web application attack that involves injecting malicious code into a users browser instance. The code is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology. When an attacker gets a users browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site, compromising the trust relationship between the user and the web site. There are three types of Cross-site Scripting attacks:</p>
+<p>non-persistent, persistent and DOM-based..</p>
+            </div>
+            <div id="mitigationhigh_2" class="collapsible" style="margin-top: 10px;">
+                <p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. Use structured mechanisms that automatically enforce the separation between data and code. Do not dynamically construct and execute query strings within these features using "exec" or similar functionality. When using PHP, configure the application so that it does not use register_globals.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">SQL Injection - MySQL</h3>
+            <p><strong>Count:</strong> 4</p>
+            <p><strong>Count %:</strong> (23.5%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/89.html" target="_blank">89</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionhigh_3', 'mitigationhigh_3')">Description</button>
+                <button onclick="toggleSection('mitigationhigh_3', 'descriptionhigh_3')">Mitigation</button>
+                <button onclick="askQuestion('high_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionhigh_3', 'mitigationhigh_3')">Collapse</button>
+            <div id="descriptionhigh_3" class="collapsible" style="margin-top: 10px;">
+                <p>Summary SQL injection may be possible. Solution Do not trust client side input, even if there is client side validation in place. In general, type check all data on the server side. If the application uses JDBC, use PreparedStatement or CallableStatement, with parameters passed by '?' If the application uses ASP, use ADO Command Objects with strong type checking and parameterized queries. If database Stored Procedures can be used, use them. Do *not* concatenate strings into queries in the stored procedure, or use 'exec', 'exec immediate', or equivalent functionality! Do not create dynamic SQL queries using simple string concatenation. Escape all data received from the client. Apply an 'allow list' of allowed characters, or a 'deny list' of disallowed characters in user input. Apply the principle of least privilege by using the least privileged database user possible. In particular, avoid using the'sa' or 'db-owner' database users. This does not eliminate SQL injection, but minimizes its impact. Grant the minimum database access that is necessary for the application. Other Info References  SQL injection may be possible. Provide only the description of the vulnerability, excluding any mitigation details. The solution provided is general and applicable to most cases. However, the specific implementation may vary depending on the technology stack used..</p>
+            </div>
+            <div id="mitigationhigh_3" class="collapsible" style="margin-top: 10px;">
+                <p>Use a vetted library or framework that does not allow this weakness to occur. Use the "double-submitted cookie" method as described by Felten and Zeller. Do not use the GET method for any request that triggers a state change. Check the HTTP Referer header to see if the request originated from an expected page.</p>
+            </div>
+        </div>
+        
+  <h2>Medium Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Absence of Anti-CSRF Tokens</h3>
+            <p><strong>Count:</strong> 26</p>
+            <p><strong>Count %:</strong> (152.9%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/352.html" target="_blank">352</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_1', 'mitigationmedium_1')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_1', 'descriptionmedium_1')">Mitigation</button>
+                <button onclick="askQuestion('medium_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_1', 'mitigationmedium_1')">Collapse</button>
+            <div id="descriptionmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary No Anti-CSRF tokens were found in a HTML submission form. A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf. CSRF attacks are effective in a number of situations, including:</p>
+<p>* The victim has an active session on the target site. * The victim is authenticated via HTTP auth on the target site. * The victim is on the same local network as the target site. CSRF has primarily been used to perform an action against a target site using the victims privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy. Solution Phase:</p>
+<p>Architecture and Design Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. For example, use anti-CSRF packages such as the OWASP CSRFGuard. Phase:</p>
+<p>Implementation Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script. Phase:</p>
+<p>Architecture and Design Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330). Note that this can be bypassed using XSS. Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation. Use the ESAPI Session Management control. This control includes a component for CSRF defense that generates a unique token for each user session and includes this token in the session cookie. This token can be used to verify the users identity and prevent CSRF attacks. In summary, cross-site request forgery (CSRF) is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. CSRF exploits the trust that a web site has for a user, while cross-site scripting (XSS) exploits the trust that a user has for a web site. CSRF attacks can be effective in situations where the victim has an active session on the target site, is authenticated via HTTP auth on the target site, or is on the same local network as the target site. To prevent CSRF attacks, use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Identify especially dangerous operations and send a separate confirmation request to ensure that the user intended to perform that operation. Use the ESAPI Session Management control, which includes a component for CSRF defense that generates a unique token for each user session and includes this token in the session cookie. This token can.</p>
+            </div>
+            <div id="mitigationmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>The concept of X-Frame- options is well documented, but implementation of this protection mechanism is in development to cover gaps. A developer can use a "frame-breaker" script in each page that should not be framed. There is a need for allowing frames from multiple domains.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Content Security Policy (CSP) Header Not Set</h3>
+            <p><strong>Count:</strong> 27</p>
+            <p><strong>Count %:</strong> (158.8%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_2', 'mitigationmedium_2')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_2', 'descriptionmedium_2')">Mitigation</button>
+                <button onclick="askQuestion('medium_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_2', 'mitigationmedium_2')">Collapse</button>
+            <div id="descriptionmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10038-1 Content Security Policy (CSP) Header Not Set 10038-2 Obsolete Content Security Policy (CSP) Header Found 10038-3 Content Security Policy (CSP) Report-Only Header Found  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>The Content Security Policy (CSP) header is missing or not set in the application, which can lead to security vulnerabilities such as cross-site scripting (XSS) attacks and data breaches. The CSP header should be set to include trusted sources of content and restrict the execution of untrusted content. If the CSP header is missing or not set, it is recommended to set it immediately to ensure the security of the application and its users..</p>
+            </div>
+            <div id="mitigationmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Leverage the HttpOnly flag when setting a sensitive cookie in a response. Attackers might also be able to use XMLHTTPResponse to read the headers directly and obtain the cookie. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access to cookies.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Missing Anti-clickjacking Header</h3>
+            <p><strong>Count:</strong> 21</p>
+            <p><strong>Count %:</strong> (123.5%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1021.html" target="_blank">1021</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_3', 'mitigationmedium_3')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_3', 'descriptionmedium_3')">Mitigation</button>
+                <button onclick="askQuestion('medium_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_3', 'mitigationmedium_3')">Collapse</button>
+            <div id="descriptionmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10020-1 Missing Anti-clickjacking Header 10020-2 Multiple X-Frame-Options Header Entries 10020-3 X-Frame-Options Defined via META (Non-compliant with Spec) 10020-4 X-Frame-Options Setting Malformed  Provide only the description of the vulnerability, excluding any mitigation details. Description of Vulnerabilities:</p>
+<p>1. Missing Anti-clickjacking Header:</p>
+<p>The absence of an anti-clickjacking header in the HTML document can lead to clickjacking attacks.</p>
+<p>2. Multiple X-Frame-Options Header Entries:</p>
+<p>The presence of multiple X-Frame-Options header entries can make it difficult for web browsers to determine which frames are allowed to be displayed, potentially leading to clickjacking attacks.</p>
+<p>3. X-Frame-Options Defined via META:</p>
+<p>In some cases, the X-Frame-Options header is defined via the META tag, which may not be compliant with the specification.</p>
+<p>4. X-Frame-Options Setting Malformed Code:</p>
+<p>The X-Frame-Options header may be set with malformed code, which can also lead to clickjacking attacks.</p>
+<p>Description of Mitigation:</p>
+<p>- Implement an anti-clickjacking header in the HTML document.</p>
+<p>- Limit the number of X-Frame-Options header entries to one.</p>
+<p>- Ensure that the X-Frame-Options header is defined only in the HEAD section of the HTML document.</p>
+<p>- Set the X-Frame-Options header with valid and compliant code..</p>
+            </div>
+            <div id="mitigationmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Set the SameSite attribute of a sensitive cookie to 'Lax' or 'Strict' This instructs the browser to apply this cookie only to same-domain requests. This provides a good Defense in Depth against CSRF attacks. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access.</p>
+            </div>
+        </div>
+        
+  <h2>Low Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie No HttpOnly Flag</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (11.8%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1004.html" target="_blank">1004</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_1', 'mitigationlow_1')">Description</button>
+                <button onclick="toggleSection('mitigationlow_1', 'descriptionlow_1')">Mitigation</button>
+                <button onclick="askQuestion('low_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_1', 'mitigationlow_1')">Collapse</button>
+            <div id="descriptionlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible. Solution Ensure that the HttpOnly flag is set for all cookies. Other Info References  A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. Provide only the description of the vulnerability, excluding any mitigation details. Description A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If this is a session cookie then session hijacking may be possible..</p>
+            </div>
+            <div id="mitigationlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Architects and designers should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges. Always be careful when interfacing with a compartment outside of the safe area.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie without SameSite Attribute</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (11.8%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_2', 'mitigationlow_2')">Description</button>
+                <button onclick="toggleSection('mitigationlow_2', 'descriptionlow_2')">Mitigation</button>
+                <button onclick="askQuestion('low_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_2', 'mitigationlow_2')">Collapse</button>
+            <div id="descriptionlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts Rule : 10054-1 Cookie without SameSite Attribute 10054-2 Cookie with SameSite Attribute None 10054-3 Cookie with Invalid SameSite Attribute. Description:</p>
+<p>This rule detects cookies that do not have the SameSite attribute set, which can lead to cross-site scripting (XSS) attacks. It also detects cookies with the SameSite attribute set to None, which can lead to clickjacking attacks. Finally, it detects cookies with an invalid SameSite attribute code, which can lead to various security vulnerabilities..</p>
+            </div>
+            <div id="mitigationlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Perform thorough input validation (i.e.: server side validation) on the cookie data if you're going to use it for a security-related decision. Add integrity checks to detect tampering. Protect critical cookies from replay attacks, since cross-site scripting or other attacks may allow attackers to steal a strongly-encrypted cookie.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Server Leaks Version Information via "Server" HTTP Response Header Field</h3>
+            <p><strong>Count:</strong> 45</p>
+            <p><strong>Count %:</strong> (264.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_3', 'mitigationlow_3')">Description</button>
+                <button onclick="toggleSection('mitigationlow_3', 'descriptionlow_3')">Mitigation</button>
+                <button onclick="askQuestion('low_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_3', 'mitigationlow_3')">Collapse</button>
+            <div id="descriptionlow_3" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10036-1 Server Leaks its Webserver Application via "Server" HTTP Response Header Field 10036-2 Server Leaks Version Information via "Server" HTTP Response Header Field  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>The vulnerability allows an attacker to obtain information about the version of the ZAP application being used by a remote server. An attacker can exploit this vulnerability by intercepting and analyzing the "Server" HTTP response header field, which contains information about the application being used by the server. If the server is using an older version of the ZAP application, the attacker may be able to use this information to identify vulnerabilities in that version and potentially exploit them..</p>
+            </div>
+            <div id="mitigationlow_3" class="collapsible" style="margin-top: 10px;">
+                <p>Assume all input is malicious. Use an "accept known good" input validation strategy. Reject any input that does not strictly conform to specifications. For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">X-Content-Type-Options Header Missing</h3>
+            <p><strong>Count:</strong> 36</p>
+            <p><strong>Count %:</strong> (211.8%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_4', 'mitigationlow_4')">Description</button>
+                <button onclick="toggleSection('mitigationlow_4', 'descriptionlow_4')">Mitigation</button>
+                <button onclick="askQuestion('low_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_4', 'mitigationlow_4')">Collapse</button>
+            <div id="descriptionlow_4" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing. Solution Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages. If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing. Other Info This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type. At "High" threshold this scan rule will not alert on client or server error responses. References  The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. Provide only the description of the vulnerability, excluding any mitigation details. The description of the vulnerability is that the X-Content-Type-Options header has not been set to 'nosniff', which allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. The vulnerability affects error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type..</p>
+            </div>
+            <div id="mitigationlow_4" class="collapsible" style="margin-top: 10px;">
+                To mitigate the risk associated with the missing X-Content-Type-Options header, you should ensure the header is set in the HTTP responses sent by your web server.
+            </div>
+        </div>
+        
+
+    <script>
+    function toggleSection(showId, hideId) {
+      const showElement = document.getElementById(showId);
+      const hideElement = document.getElementById(hideId);
+      
+      if (showElement.style.display === 'block') {
+        showElement.style.display = 'none';
+      } else {
+        showElement.style.display = 'block';
+        hideElement.style.display = 'none';
+      }
+    }
+
+    function collapseAll(...ids) {
+      ids.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

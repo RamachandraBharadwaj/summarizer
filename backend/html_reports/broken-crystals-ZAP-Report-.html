@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concise Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #333; }
+    .info { margin-bottom: 20px; }
+    .info p { margin: 5px 0; }
+    .vulnerability { position: relative; margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f8f8f8; }
+    .vulnerability h3 { margin: 0 0 5px; color: #333; }
+    .vulnerability p { margin: 0; color: #555; }
+    .button-container { display: flex; gap: 10px; margin-top: 10px; }
+    button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+    button:hover { background-color: #0056b3; }
+    .collapsible { display: none; padding: 10px; border-top: 1px solid #ddd; margin-top: 10px; background-color: #f1f1f1; color: #333; }
+    .no-vulnerabilities { color: #777; font-style: italic; margin: 10px 0; }
+    .collapse-btn { position: absolute; top: 15px; right: 15px; background-color: #dc3545; }
+    .collapse-btn:hover { background-color: #c82333; }
+    .ask-question-btn {background-color: #28a745; /* Green color for Ask Question button */} 
+    .ask-question-btn:hover {background-color: #218838; /* Darker green on hover */}
+
+  </style>
+</head>
+<body>
+  <h1>Web PenTest Report Analysis</h1>
+  <h2>Concise Report</h2>
+  <div class="info">
+    <p><strong>Company Name:</strong> broken crystals vulnerable app</p>
+    <p><strong>Website Link:</strong> <a href="http://localhost:3000">http://localhost:3000</a></p>
+    <p><strong>Date:</strong> 2024-11-29</p>
+    <p><strong>Time:</strong> 10:16:58</p>
+  </div>
+  <h2>High Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cloud Metadata Potentially Exposed</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (7.1%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/94.html" target="_blank">94</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionhigh_1', 'mitigationhigh_1')">Description</button>
+                <button onclick="toggleSection('mitigationhigh_1', 'descriptionhigh_1')">Mitigation</button>
+                <button onclick="askQuestion('high_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionhigh_1', 'mitigationhigh_1')">Collapse</button>
+            <div id="descriptionhigh_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The Cloud Metadata Attack attempts to abuse a misconfigured NGINX server in order to access the instance metadata maintained by cloud service providers such as AWS, GCP and Azure. All of these providers provide metadata via an internal unroutable IP address 169.254.169.254 - this can be exposed by incorrectly configured NGINX servers and accessed by using this IP address in the Host header field. Solution Do not trust any user data in NGINX configs. In this case it is probably the use of the $host variable which is set from the 'Host' header and can be controlled by an attacker. Other Info Based on the successful response status code cloud metadata may have been returned in the response. Check the response data to see if any cloud metadata has been returned. The meta data returned can include information that would allow an attacker to completely compromise the system. References  The Cloud Metadata Attack attempts to abuse a misconfigured NGINX server in order to access the instance metadata maintained by cloud service providers such as AWS, GCP and Azure. Provide only the description of the vulnerability, excluding any mitigation details. The Cloud Metadata Attack is a vulnerability that can be exploited by attackers to access instance metadata maintained by cloud service providers such as AWS, GCP, and Azure. The vulnerability can be exploited by misconfigured NGINX servers that expose the internal unroutable IP address 169.254.169.254. An attacker can use this IP address in the Host header field to access the metadata. Do not trust any user data in NGINX configs. In this case, it is probably the use of the $host variable, which is set from the 'Host' header and can be controlled by an attacker. The meta data returned can include information that would allow an attacker to completely compromise the system..</p>
+            </div>
+            <div id="mitigationhigh_1" class="collapsible" style="margin-top: 10px;">
+                <p>Refactor your program so that you do not have to dynamically generate code. Run your code in a "jail" or similar sandbox environment that enforces strict boundaries between the process and the operating system. Use stringent allowlists that limit which constructs are allowed. Be careful to avoidCWE-243and other weaknesses related to jails.</p>
+            </div>
+        </div>
+        
+  <h2>Medium Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">.htaccess Information Leak</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (7.1%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_1', 'mitigationmedium_1')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_1', 'descriptionmedium_1')">Mitigation</button>
+                <button onclick="askQuestion('medium_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_1', 'mitigationmedium_1')">Collapse</button>
+            <div id="descriptionmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary htaccess files can be used to alter the configuration of the Apache Web Server software to enable/disable additional functionality and features that the Apache Web Server software has to offer. Solution Ensure the.htaccess file is not accessible. Other Info References  htaccess files can be used to alter the configuration of the Apache Web Server software to enable/disable additional functionality and features that the Apache Web Server software has to offer. Provide only the description of the vulnerability, excluding any mitigation details. Description A.htaccess file can be used to enable or disable certain functionalities of the Apache Web Server software. If an attacker gains access to a server's.htaccess file, they can modify it to enable malicious functionalities, potentially leading to server compromise or data theft. However, if the.htaccess file is not accessible, the vulnerability does not exist. References  htaccess files can be used to alter the configuration of the Apache Web Server software to enable/disable additional functionality and features..</p>
+            </div>
+            <div id="mitigationmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Do not expose file and directory information to the user. Use the following steps: Architecture and Design; Operation; System Configuration. The final phase is to configure the system to work properly. The steps are Architecture, Design, Operation, System Configuration, Configuration. Do not expose files and directories to the users.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Content Security Policy (CSP) Header Not Set</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (21.4%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/538.html" target="_blank">538</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_2', 'mitigationmedium_2')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_2', 'descriptionmedium_2')">Mitigation</button>
+                <button onclick="askQuestion('medium_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_2', 'mitigationmedium_2')">Collapse</button>
+            <div id="descriptionmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10038-1 Content Security Policy (CSP) Header Not Set 10038-2 Obsolete Content Security Policy (CSP) Header Found 10038-3 Content Security Policy (CSP) Report-Only Header Found  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>The Content Security Policy (CSP) header is missing or not set in the application, which can lead to security vulnerabilities such as cross-site scripting (XSS) attacks and data breaches. The CSP header should be set to include trusted sources of content and restrict the execution of untrusted content. If the CSP header is missing or not set, it is recommended to set it immediately to ensure the security of the application and its users..</p>
+            </div>
+            <div id="mitigationmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>The concept of X-Frame- options is well documented, but implementation of this protection mechanism is in development to cover gaps. A developer can use a "frame-breaker" script in each page that should not be framed. There is a need for allowing frames from multiple domains.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Hidden File Found</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (21.4%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1021.html" target="_blank">1021</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_3', 'mitigationmedium_3')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_3', 'descriptionmedium_3')">Mitigation</button>
+                <button onclick="askQuestion('medium_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_3', 'mitigationmedium_3')">Collapse</button>
+            <div id="descriptionmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A sensitive file was identified as accessible or available. This may leak administrative, configuration, or credential information which can be leveraged by a malicious individual to further attack the system or conduct social engineering efforts. Solution Consider whether or not the component is actually required in production, if it isn't then disable it. If it is then ensure access to it requires appropriate authentication and authorization, or limit exposure to internal systems or specific source IPs, etc. Other Info cvs_dir References  A sensitive file was identified as accessible or available. Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>A sensitive file was identified as accessible or available, potentially leaking administrative, configuration, or credential information. The vulnerability can be exploited by a malicious individual to further attack the system or conduct social engineering efforts..</p>
+            </div>
+            <div id="mitigationmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs. Store library, include, and utility files outside of the web document root, if possible.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Missing Anti-clickjacking Header</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (21.4%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/829.html" target="_blank">829</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_4', 'mitigationmedium_4')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_4', 'descriptionmedium_4')">Mitigation</button>
+                <button onclick="askQuestion('medium_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_4', 'mitigationmedium_4')">Collapse</button>
+            <div id="descriptionmedium_4" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10020-1 Missing Anti-clickjacking Header 10020-2 Multiple X-Frame-Options Header Entries 10020-3 X-Frame-Options Defined via META (Non-compliant with Spec) 10020-4 X-Frame-Options Setting Malformed  Provide only the description of the vulnerability, excluding any mitigation details. Description of Vulnerabilities:</p>
+<p>1. Missing Anti-clickjacking Header:</p>
+<p>The absence of an anti-clickjacking header in the HTML document can lead to clickjacking attacks.</p>
+<p>2. Multiple X-Frame-Options Header Entries:</p>
+<p>The presence of multiple X-Frame-Options header entries can make it difficult for web browsers to determine which frames are allowed to be displayed, potentially leading to clickjacking attacks.</p>
+<p>3. X-Frame-Options Defined via META:</p>
+<p>In some cases, the X-Frame-Options header is defined via the META tag, which may not be compliant with the specification.</p>
+<p>4. X-Frame-Options Setting Malformed Code:</p>
+<p>The X-Frame-Options header may be set with malformed code, which can also lead to clickjacking attacks.</p>
+<p>Description of Mitigation:</p>
+<p>- Implement an anti-clickjacking header in the HTML document.</p>
+<p>- Limit the number of X-Frame-Options header entries to one.</p>
+<p>- Ensure that the X-Frame-Options header is defined only in the HEAD section of the HTML document.</p>
+<p>- Set the X-Frame-Options header with valid and compliant code..</p>
+            </div>
+            <div id="mitigationmedium_4" class="collapsible" style="margin-top: 10px;">
+                <p>Leverage the HttpOnly flag when setting a sensitive cookie in a response. Attackers might also be able to use XMLHTTPResponse to read the headers directly and obtain the cookie. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access to cookies.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Vulnerable JS Library</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (14.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1004.html" target="_blank">1004</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_5', 'mitigationmedium_5')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_5', 'descriptionmedium_5')">Mitigation</button>
+                <button onclick="askQuestion('medium_5')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_5', 'mitigationmedium_5')">Collapse</button>
+            <div id="descriptionmedium_5" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The identified library ExampleLibrary, version x.y.z is vulnerable. Solution Please upgrade to the latest version of ExampleLibrary. Other Info References  The identified library ExampleLibrary, version x.y.z is vulnerable. Provide only the description of the vulnerability, excluding any mitigation details. Description of Vulnerability:</p>
+<p>ExampleLibrary version x.y.z contains a vulnerability that could potentially allow an attacker to execute arbitrary code. The specific vulnerability has not been identified, as it depends on the implementation details of ExampleLibrary. It is recommended to upgrade to the latest version of ExampleLibrary to avoid this vulnerability..</p>
+            </div>
+            <div id="mitigationmedium_5" class="collapsible" style="margin-top: 10px;">
+                <p>Set the SameSite attribute of a sensitive cookie to 'Lax' or 'Strict' This instructs the browser to apply this cookie only to same-domain requests. This provides a good Defense in Depth against CSRF attacks. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access.</p>
+            </div>
+        </div>
+        
+  <h2>Low Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie No HttpOnly Flag</h3>
+            <p><strong>Count:</strong> 37</p>
+            <p><strong>Count %:</strong> (264.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_1', 'mitigationlow_1')">Description</button>
+                <button onclick="toggleSection('mitigationlow_1', 'descriptionlow_1')">Mitigation</button>
+                <button onclick="askQuestion('low_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_1', 'mitigationlow_1')">Collapse</button>
+            <div id="descriptionlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible. Solution Ensure that the HttpOnly flag is set for all cookies. Other Info References  A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If this is a session cookie then session hijacking may be possible..</p>
+            </div>
+            <div id="mitigationlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Architects and designers should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges. Always be careful when interfacing with a compartment outside of the safe area.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie without SameSite Attribute</h3>
+            <p><strong>Count:</strong> 37</p>
+            <p><strong>Count %:</strong> (264.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_2', 'mitigationlow_2')">Description</button>
+                <button onclick="toggleSection('mitigationlow_2', 'descriptionlow_2')">Mitigation</button>
+                <button onclick="askQuestion('low_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_2', 'mitigationlow_2')">Collapse</button>
+            <div id="descriptionlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10054-1 Cookie without SameSite Attribute 10054-2 Cookie with SameSite Attribute None 10054-3 Cookie with Invalid SameSite Attribute  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>This rule detects cookies that do not have the SameSite attribute set, which can lead to cross-site scripting (XSS) attacks. It also detects cookies with the SameSite attribute set to None, which can lead to clickjacking attacks. Finally, it detects cookies with an invalid SameSite attribute code, which can lead to various security vulnerabilities..</p>
+            </div>
+            <div id="mitigationlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Perform thorough input validation (i.e.: server side validation) on the cookie data if you're going to use it for a security-related decision. Add integrity checks to detect tampering. Protect critical cookies from replay attacks, since cross-site scripting or other attacks may allow attackers to steal a strongly-encrypted cookie.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Timestamp Disclosure - Unix</h3>
+            <p><strong>Count:</strong> 74</p>
+            <p><strong>Count %:</strong> (528.6%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_3', 'mitigationlow_3')">Description</button>
+                <button onclick="toggleSection('mitigationlow_3', 'descriptionlow_3')">Mitigation</button>
+                <button onclick="askQuestion('low_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_3', 'mitigationlow_3')">Collapse</button>
+            <div id="descriptionlow_3" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A timestamp was disclosed by the application/web server. - Unix Solution Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns. Other Info 1704114087, which evaluates to:</p>
+<p>1970-01-20 17:</p>
+<p>21:</p>
+<p>54. References  A timestamp was disclosed by the application/web server. - Unix Provide only the description of the vulnerability, excluding any mitigation details. A timestamp was disclosed by the application/web server. - Unix Solution Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns..</p>
+            </div>
+            <div id="mitigationlow_3" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">X-Content-Type-Options Header Missing</h3>
+            <p><strong>Count:</strong> 37</p>
+            <p><strong>Count %:</strong> (264.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_4', 'mitigationlow_4')">Description</button>
+                <button onclick="toggleSection('mitigationlow_4', 'descriptionlow_4')">Mitigation</button>
+                <button onclick="askQuestion('low_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_4', 'mitigationlow_4')">Collapse</button>
+            <div id="descriptionlow_4" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing. Solution Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages. If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing. Other Info This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type. At "High" threshold this scan rule will not alert on client or server error responses. References  The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. Provide only the description of the vulnerability, excluding any mitigation details. The description of the vulnerability is that the X-Content-Type-Options header has not been set to 'nosniff', which allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. The vulnerability affects error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type..</p>
+            </div>
+            <div id="mitigationlow_4" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+
+    <script>
+    function toggleSection(showId, hideId) {
+      const showElement = document.getElementById(showId);
+      const hideElement = document.getElementById(hideId);
+      
+      if (showElement.style.display === 'block') {
+        showElement.style.display = 'none';
+      } else {
+        showElement.style.display = 'block';
+        hideElement.style.display = 'none';
+      }
+    }
+
+    function collapseAll(...ids) {
+      ids.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

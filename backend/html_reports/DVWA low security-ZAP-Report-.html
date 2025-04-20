@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concise Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #333; }
+    .info { margin-bottom: 20px; }
+    .info p { margin: 5px 0; }
+    .vulnerability { position: relative; margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f8f8f8; }
+    .vulnerability h3 { margin: 0 0 5px; color: #333; }
+    .vulnerability p { margin: 0; color: #555; }
+    .button-container { display: flex; gap: 10px; margin-top: 10px; }
+    button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+    button:hover { background-color: #0056b3; }
+    .collapsible { display: none; padding: 10px; border-top: 1px solid #ddd; margin-top: 10px; background-color: #f1f1f1; color: #333; }
+    .no-vulnerabilities { color: #777; font-style: italic; margin: 10px 0; }
+    .collapse-btn { position: absolute; top: 15px; right: 15px; background-color: #dc3545; }
+    .collapse-btn:hover { background-color: #c82333; }
+    .ask-question-btn {background-color: #28a745; /* Green color for Ask Question button */} 
+    .ask-question-btn:hover {background-color: #218838; /* Darker green on hover */}
+
+  </style>
+</head>
+<body>
+  <h1>Web PenTest Report Analysis</h1>
+  <h2>Concise Report</h2>
+  <div class="info">
+    <p><strong>Company Name:</strong> ZAP Scanning Report - low security DVWA</p>
+    <p><strong>Website Link:</strong> <a href="http://localhost">http://localhost</a></p>
+    <p><strong>Date:</strong> 2024-11-29</p>
+    <p><strong>Time:</strong> 10:24:38</p>
+  </div>
+  <h2>High Risk Vulnerabilities</h2>
+  <div class="no-vulnerabilities">No vulnerabilities found</div>
+  <h2>Medium Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Content Security Policy (CSP) Header Not Set</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (25.0%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_1', 'mitigationmedium_1')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_1', 'descriptionmedium_1')">Mitigation</button>
+                <button onclick="askQuestion('medium_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_1', 'mitigationmedium_1')">Collapse</button>
+            <div id="descriptionmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10038-1 Content Security Policy (CSP) Header Not Set 10038-2 Obsolete Content Security Policy (CSP) Header Found 10038-3 Content Security Policy (CSP) Report-Only Header Found  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>The Content Security Policy (CSP) header is missing or not set in the application, which can lead to security vulnerabilities such as cross-site scripting (XSS) attacks and data breaches. The CSP header should be set to include trusted sources of content and restrict the execution of untrusted content. If the CSP header is missing or not set, it is recommended to set it immediately to ensure the security of the application and its users..</p>
+            </div>
+            <div id="mitigationmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Recommendations include restricting access to important directories or files by adopting a need to know requirement for both the document and server root. Turn off features such as Automatic Directory Listings that could expose private files and provide information that could be utilized by an attacker when formulating or conducting an attack.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Directory Browsing</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (25.0%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/548.html" target="_blank">548</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_2', 'mitigationmedium_2')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_2', 'descriptionmedium_2')">Mitigation</button>
+                <button onclick="askQuestion('medium_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_2', 'mitigationmedium_2')">Collapse</button>
+            <div id="descriptionmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Summary It is possible to view the directory listing. Directory listing may reveal hidden scripts, include files, backup source files, etc. which can be accessed to read sensitive information. Solution Disable directory browsing. If this is required, make sure the listed files does not induce risks. Other Info References #options  It is possible to view the directory listing. Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>Directory browsing can expose sensitive information by revealing hidden scripts, include files, backup source files, etc. that can be accessed to read sensitive information. This vulnerability can be exploited by an attacker to gain unauthorized access to sensitive data. Other Info References #options .</p>
+            </div>
+            <div id="mitigationmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Do not expose file and directory information to the user. Use the following steps: Architecture and Design; Operation; System Configuration. The final phase is to configure the system to work properly. The steps are Architecture, Design, Operation, System Configuration, Configuration. Do not expose files and directories to the users.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Hidden File Found</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (16.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/538.html" target="_blank">538</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_3', 'mitigationmedium_3')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_3', 'descriptionmedium_3')">Mitigation</button>
+                <button onclick="askQuestion('medium_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_3', 'mitigationmedium_3')">Collapse</button>
+            <div id="descriptionmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A sensitive file was identified as accessible or available. This may leak administrative, configuration, or credential information which can be leveraged by a malicious individual to further attack the system or conduct social engineering efforts. Solution Consider whether or not the component is actually required in production, if it isn't then disable it. If it is then ensure access to it requires appropriate authentication and authorization, or limit exposure to internal systems or specific source IPs, etc. Other Info cvs_dir References  A sensitive file was identified as accessible or available. Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>A sensitive file was identified as accessible or available, potentially leaking administrative, configuration, or credential information. The vulnerability can be exploited by a malicious individual to further attack the system or conduct social engineering efforts..</p>
+            </div>
+            <div id="mitigationmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>The concept of X-Frame- options is well documented, but implementation of this protection mechanism is in development to cover gaps. A developer can use a "frame-breaker" script in each page that should not be framed. There is a need for allowing frames from multiple domains.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Missing Anti-clickjacking Header</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (8.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1021.html" target="_blank">1021</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_4', 'mitigationmedium_4')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_4', 'descriptionmedium_4')">Mitigation</button>
+                <button onclick="askQuestion('medium_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_4', 'mitigationmedium_4')">Collapse</button>
+            <div id="descriptionmedium_4" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10020-1 Missing Anti-clickjacking Header 10020-2 Multiple X-Frame-Options Header Entries 10020-3 X-Frame-Options Defined via META (Non-compliant with Spec) 10020-4 X-Frame-Options Setting Malformed  Provide only the description of the vulnerability, excluding any mitigation details. Description of Vulnerabilities:</p>
+<p>1. Missing Anti-clickjacking Header:</p>
+<p>The absence of an anti-clickjacking header in the HTML document can lead to clickjacking attacks.</p>
+<p>2. Multiple X-Frame-Options Header Entries:</p>
+<p>The presence of multiple X-Frame-Options header entries can make it difficult for web browsers to determine which frames are allowed to be displayed, potentially leading to clickjacking attacks.</p>
+<p>3. X-Frame-Options Defined via META:</p>
+<p>In some cases, the X-Frame-Options header is defined via the META tag, which may not be compliant with the specification.</p>
+<p>4. X-Frame-Options Setting Malformed Code:</p>
+<p>The X-Frame-Options header may be set with malformed code, which can also lead to clickjacking attacks.</p>
+<p>Description of Mitigation:</p>
+<p>- Implement an anti-clickjacking header in the HTML document.</p>
+<p>- Limit the number of X-Frame-Options header entries to one.</p>
+<p>- Ensure that the X-Frame-Options header is defined only in the HEAD section of the HTML document.</p>
+<p>- Set the X-Frame-Options header with valid and compliant code..</p>
+            </div>
+            <div id="mitigationmedium_4" class="collapsible" style="margin-top: 10px;">
+                <p>Set the SameSite attribute of a sensitive cookie to 'Lax' or 'Strict' This instructs the browser to apply this cookie only to same-domain requests. This provides a good Defense in Depth against CSRF attacks. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access.</p>
+            </div>
+        </div>
+        
+  <h2>Low Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie without SameSite Attribute</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (8.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_1', 'mitigationlow_1')">Description</button>
+                <button onclick="toggleSection('mitigationlow_1', 'descriptionlow_1')">Mitigation</button>
+                <button onclick="askQuestion('low_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_1', 'mitigationlow_1')">Collapse</button>
+            <div id="descriptionlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10054-1 Cookie without SameSite Attribute 10054-2 Cookie with SameSite Attribute None 10054-3 Cookie with Invalid SameSite Attribute  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>This rule detects cookies that do not have the SameSite attribute set, which can lead to cross-site scripting (XSS) attacks. It also detects cookies with the SameSite attribute set to None, which can lead to clickjacking attacks. Finally, it detects cookies with an invalid SameSite attribute code, which can lead to various security vulnerabilities..</p>
+            </div>
+            <div id="mitigationlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Architects and designers should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges. Always be careful when interfacing with a compartment outside of the safe area.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s)</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (16.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_2', 'mitigationlow_2')">Description</button>
+                <button onclick="toggleSection('mitigationlow_2', 'descriptionlow_2')">Mitigation</button>
+                <button onclick="askQuestion('low_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_2', 'mitigationlow_2')">Collapse</button>
+            <div id="descriptionlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The web/application server is leaking information via one or more X-Powered-By HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to. Solution Ensure that your web server, application server, load balancer, etc. is configured to suppress "X-Powered-By" headers. Other Info References  The web/application server is leaking information via one or more X-Powered-By HTTP response headers. Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>The web/application server is leaking information via one or more X-Powered-By HTTP response headers, which may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to..</p>
+            </div>
+            <div id="mitigationlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Perform thorough input validation (i.e.: server side validation) on the cookie data if you're going to use it for a security-related decision. Add integrity checks to detect tampering. Protect critical cookies from replay attacks, since cross-site scripting or other attacks may allow attackers to steal a strongly-encrypted cookie.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Server Leaks Version Information via "Server" HTTP Response Header Field</h3>
+            <p><strong>Count:</strong> 6</p>
+            <p><strong>Count %:</strong> (50.0%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_3', 'mitigationlow_3')">Description</button>
+                <button onclick="toggleSection('mitigationlow_3', 'descriptionlow_3')">Mitigation</button>
+                <button onclick="askQuestion('low_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_3', 'mitigationlow_3')">Collapse</button>
+            <div id="descriptionlow_3" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10036-1 Server Leaks its Webserver Application via "Server" HTTP Response Header Field 10036-2 Server Leaks Version Information via "Server" HTTP Response Header Field  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>The vulnerability allows an attacker to obtain information about the version of the ZAP application being used by a remote server. An attacker can exploit this vulnerability by intercepting and analyzing the "Server" HTTP response header field, which contains information about the application being used by the server. If the server is using an older version of the ZAP application, the attacker may be able to use this information to identify vulnerabilities in that version and potentially exploit them..</p>
+            </div>
+            <div id="mitigationlow_3" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">X-Content-Type-Options Header Missing</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (25.0%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_4', 'mitigationlow_4')">Description</button>
+                <button onclick="toggleSection('mitigationlow_4', 'descriptionlow_4')">Mitigation</button>
+                <button onclick="askQuestion('low_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_4', 'mitigationlow_4')">Collapse</button>
+            <div id="descriptionlow_4" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing. Solution Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages. If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing. Other Info This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type. At "High" threshold this scan rule will not alert on client or server error responses. References  The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. Provide only the description of the vulnerability, excluding any mitigation details. The description of the vulnerability is that the X-Content-Type-Options header has not been set to 'nosniff', which allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. The vulnerability affects error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type..</p>
+            </div>
+            <div id="mitigationlow_4" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+
+    <script>
+    function toggleSection(showId, hideId) {
+      const showElement = document.getElementById(showId);
+      const hideElement = document.getElementById(hideId);
+      
+      if (showElement.style.display === 'block') {
+        showElement.style.display = 'none';
+      } else {
+        showElement.style.display = 'block';
+        hideElement.style.display = 'none';
+      }
+    }
+
+    function collapseAll(...ids) {
+      ids.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

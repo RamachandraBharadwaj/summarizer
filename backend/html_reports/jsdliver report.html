@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concise Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #333; }
+    .info { margin-bottom: 20px; }
+    .info p { margin: 5px 0; }
+    .vulnerability { position: relative; margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f8f8f8; }
+    .vulnerability h3 { margin: 0 0 5px; color: #333; }
+    .vulnerability p { margin: 0; color: #555; }
+    .button-container { display: flex; gap: 10px; margin-top: 10px; }
+    button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+    button:hover { background-color: #0056b3; }
+    .collapsible { display: none; padding: 10px; border-top: 1px solid #ddd; margin-top: 10px; background-color: #f1f1f1; color: #333; }
+    .no-vulnerabilities { color: #777; font-style: italic; margin: 10px 0; }
+    .collapse-btn { position: absolute; top: 15px; right: 15px; background-color: #dc3545; }
+    .collapse-btn:hover { background-color: #c82333; }
+    .ask-question-btn {background-color: #28a745; /* Green color for Ask Question button */} 
+    .ask-question-btn:hover {background-color: #218838; /* Darker green on hover */}
+
+  </style>
+</head>
+<body>
+  <h1>Web PenTest Report Analysis</h1>
+  <h2>Concise Report</h2>
+  <div class="info">
+    <p><strong>Company Name:</strong> JsDelivr</p>
+    <p><strong>Website Link:</strong> <a href="https://cdn.jsdelivr.net">https://cdn.jsdelivr.net</a></p>
+    <p><strong>Date:</strong> 2024-11-29</p>
+    <p><strong>Time:</strong> 15:09:00</p>
+  </div>
+  <h2>High Risk Vulnerabilities</h2>
+  <div class="no-vulnerabilities">No vulnerabilities found</div>
+  <h2>Medium Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Content Security Policy (CSP) Header Not Set</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (33.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_1', 'mitigationmedium_1')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_1', 'descriptionmedium_1')">Mitigation</button>
+                <button onclick="askQuestion('medium_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_1', 'mitigationmedium_1')">Collapse</button>
+            <div id="descriptionmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10038-1 Content Security Policy (CSP) Header Not Set 10038-2 Obsolete Content Security Policy (CSP) Header Found 10038-3 Content Security Policy (CSP) Report-Only Header Found. Description:</p>
+<p>The Content Security Policy (CSP) header is missing or not set in the application, which can lead to security vulnerabilities such as cross-site scripting (XSS) attacks and data breaches. The CSP header should be set to include trusted sources of content and restrict the execution of untrusted content. If the CSP header is missing or not set, it is recommended to set it immediately to ensure the security of the application and its users.</p>
+            </div>
+            <div id="mitigationmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Use an encryption scheme that is currently considered to be strong by experts in the field. Use a strong encryption scheme to protect your personal data from hackers. Use an encryption system to protect private data in an encrypted way to protect public data. Use encryption to protect personal data in a secure way.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cross-Domain Misconfiguration</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (22.2%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/264.html" target="_blank">264</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_2', 'mitigationmedium_2')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_2', 'descriptionmedium_2')">Mitigation</button>
+                <button onclick="askQuestion('medium_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_2', 'mitigationmedium_2')">Collapse</button>
+            <div id="descriptionmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Summary Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server. Solution Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance). Configure the "Access-Control-Allow-Origin" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner. Other Info The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing. References  Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server. Provide only the description of the vulnerability, excluding any mitigation details. Description A Cross Origin Resource Sharing (CORS) misconfiguration on the web server may allow an attacker to access data that is normally only available to authenticated users. This can occur when an unauthenticated user makes a cross-domain read request to an API on the affected domain, and the web browser enforces the Same Origin Policy (SOP) more restrictively due to the CORS misconfiguration. The vulnerability can be exploited by an attacker who is aware of the CORS misconfiguration and can make cross-domain read requests to the API, potentially accessing data that would normally only be available to authenticated users. The solution to this vulnerability is to ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance) and to configure the "Access-Control-Allow-Origin" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner..</p>
+            </div>
+            <div id="mitigationmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Set the SameSite attribute of a sensitive cookie to 'Lax' or 'Strict' This instructs the browser to apply this cookie only to same-domain requests. This provides a good Defense in Depth against CSRF attacks. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Weak Authentication Method</h3>
+            <p><strong>Count:</strong> 40</p>
+            <p><strong>Count %:</strong> (444.4%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/326.html" target="_blank">326</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_3', 'mitigationmedium_3')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_3', 'descriptionmedium_3')">Mitigation</button>
+                <button onclick="askQuestion('medium_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_3', 'mitigationmedium_3')">Collapse</button>
+            <div id="descriptionmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10105-1 Authentication Credentials Captured 10105-2 Weak Authentication Method. InsecureAuthenticationScanRule Description:</p>
+<p>This rule identifies situations where weak authentication methods are used, which can potentially expose sensitive information to unauthorized access. The rule checks for the following conditions:</p>
+<p>- Basic authentication with a weak password, such as "password" or "qwerty". - Basic authentication without a password set. - Kerberos authentication with a weak password, such as "password" or "qwerty". - LDAP authentication with a weak password, such as "password" or "qwerty". If any of these conditions are met, the rule will trigger an alert, informing the user that weak authentication is being used and suggesting alternative methods to improve security..</p>
+            </div>
+            <div id="mitigationmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Architects and designers should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges. Always be careful when interfacing with a compartment outside of the safe area. Stronger Cryptographic protocols and Secure password policies must be followed.</p>
+            </div>
+        </div>
+        
+  <h2>Low Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie without SameSite Attribute</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (22.2%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_1', 'mitigationlow_1')">Description</button>
+                <button onclick="toggleSection('mitigationlow_1', 'descriptionlow_1')">Mitigation</button>
+                <button onclick="askQuestion('low_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_1', 'mitigationlow_1')">Collapse</button>
+            <div id="descriptionlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10054-1 Cookie without SameSite Attribute 10054-2 Cookie with SameSite Attribute None 10054-3 Cookie with Invalid SameSite Attribute  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>This rule detects cookies that do not have the SameSite attribute set, which can lead to cross-site scripting (XSS) attacks. It also detects cookies with the SameSite attribute set to None, which can lead to clickjacking attacks. Finally, it detects cookies with an invalid SameSite attribute code, which can lead to various security vulnerabilities..</p>
+            </div>
+            <div id="mitigationlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Perform thorough input validation (i.e.: server side validation) on the cookie data if you're going to use it for a security-related decision. Add integrity checks to detect tampering. Protect critical cookies from replay attacks, since cross-site scripting or other attacks may allow attackers to steal a strongly-encrypted cookie.</p>
+            </div>
+        </div>
+        
+
+    <script>
+    function toggleSection(showId, hideId) {
+      const showElement = document.getElementById(showId);
+      const hideElement = document.getElementById(hideId);
+      
+      if (showElement.style.display === 'block') {
+        showElement.style.display = 'none';
+      } else {
+        showElement.style.display = 'block';
+        hideElement.style.display = 'none';
+      }
+    }
+
+    function collapseAll(...ids) {
+      ids.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

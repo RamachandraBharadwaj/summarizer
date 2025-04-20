@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concise Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #333; }
+    .info { margin-bottom: 20px; }
+    .info p { margin: 5px 0; }
+    .vulnerability { position: relative; margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f8f8f8; }
+    .vulnerability h3 { margin: 0 0 5px; color: #333; }
+    .vulnerability p { margin: 0; color: #555; }
+    .button-container { display: flex; gap: 10px; margin-top: 10px; }
+    button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+    button:hover { background-color: #0056b3; }
+    .collapsible { display: none; padding: 10px; border-top: 1px solid #ddd; margin-top: 10px; background-color: #f1f1f1; color: #333; }
+    .no-vulnerabilities { color: #777; font-style: italic; margin: 10px 0; }
+    .collapse-btn { position: absolute; top: 15px; right: 15px; background-color: #dc3545; }
+    .collapse-btn:hover { background-color: #c82333; }
+    .ask-question-btn {background-color: #28a745; /* Green color for Ask Question button */} 
+    .ask-question-btn:hover {background-color: #218838; /* Darker green on hover */}
+
+  </style>
+</head>
+<body>
+  <h1>Web PenTest Report Analysis</h1>
+  <h2>Concise Report</h2>
+  <div class="info">
+    <p><strong>Company Name:</strong> gin and juice shop</p>
+    <p><strong>Website Link:</strong> <a href="https://ginandjuice.shop">https://ginandjuice.shop</a></p>
+    <p><strong>Date:</strong> 2024-11-29</p>
+    <p><strong>Time:</strong> 10:10:54</p>
+  </div>
+  <h2>High Risk Vulnerabilities</h2>
+  <div class="no-vulnerabilities">No vulnerabilities found</div>
+  <h2>Medium Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Absence of Anti-CSRF Tokens</h3>
+            <p><strong>Count:</strong> 40</p>
+            <p><strong>Count %:</strong> (266.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/352.html" target="_blank">352</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_1', 'mitigationmedium_1')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_1', 'descriptionmedium_1')">Mitigation</button>
+                <button onclick="askQuestion('medium_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_1', 'mitigationmedium_1')">Collapse</button>
+            <div id="descriptionmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary No Anti-CSRF tokens were found in a HTML submission form. A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf. CSRF attacks are effective in a number of situations, including:</p>
+<p>* The victim has an active session on the target site. * The victim is authenticated via HTTP auth on the target site. * The victim is on the same local network as the target site. CSRF has primarily been used to perform an action against a target site using the victims privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy. Solution Phase:</p>
+<p>Architecture and Design Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. For example, use anti-CSRF packages such as the OWASP CSRFGuard. Phase:</p>
+<p>Implementation Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script. Phase:</p>
+<p>Architecture and Design Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330). Note that this can be bypassed using XSS. Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation. Use the ESAPI Session Management control. This control includes a component for CSRF defense that generates a unique token for each user session and includes this token in the session cookie. This token can be used to verify the users identity and prevent CSRF attacks. In summary, cross-site request forgery (CSRF) is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. CSRF exploits the trust that a web site has for a user, while cross-site scripting (XSS) exploits the trust that a user has for a web site. CSRF attacks can be effective in situations where the victim has an active session on the target site, is authenticated via HTTP auth on the target site, or is on the same local network as the target site. To prevent CSRF attacks, use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Identify especially dangerous operations and send a separate confirmation request to ensure that the user intended to perform that operation. Use the ESAPI Session Management control, which includes a component for CSRF defense that generates a unique token for each user session and includes this token in the session cookie. This token can.</p>
+            </div>
+            <div id="mitigationmedium_1" class="collapsible" style="margin-top: 10px;">
+                <p>Use a vetted library or framework that does not allow this weakness to occur. Use the "double-submitted cookie" method as described by Felten and Zeller. Do not use the GET method for any request that triggers a state change. Check the HTTP Referer header to see if the request originated from an expected page.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Content Security Policy (CSP) Header Not Set</h3>
+            <p><strong>Count:</strong> 35</p>
+            <p><strong>Count %:</strong> (233.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_2', 'mitigationmedium_2')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_2', 'descriptionmedium_2')">Mitigation</button>
+                <button onclick="askQuestion('medium_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_2', 'mitigationmedium_2')">Collapse</button>
+            <div id="descriptionmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10038-1 Content Security Policy (CSP) Header Not Set 10038-2 Obsolete Content Security Policy (CSP) Header Found 10038-3 Content Security Policy (CSP) Report-Only Header Found. Description:</p>
+<p>The Content Security Policy (CSP) header is missing or not set in the application, which can lead to security vulnerabilities such as cross-site scripting (XSS) attacks and data breaches. The CSP header should be set to include trusted sources of content and restrict the execution of untrusted content. If the CSP header is missing or not set, it is recommended to set it immediately to ensure the security of the application and its users..</p>
+            </div>
+            <div id="mitigationmedium_2" class="collapsible" style="margin-top: 10px;">
+                <p>For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs. Store library, include, and utility files outside of the web document root, if possible.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Vulnerable JS Library</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (6.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/829.html" target="_blank">829</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_3', 'mitigationmedium_3')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_3', 'descriptionmedium_3')">Mitigation</button>
+                <button onclick="askQuestion('medium_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_3', 'mitigationmedium_3')">Collapse</button>
+            <div id="descriptionmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The identified library ExampleLibrary, version x.y.z is vulnerable. Solution Please upgrade to the latest version of ExampleLibrary. Other Info References  The identified library ExampleLibrary, version x.y.z is vulnerable. Provide only the description of the vulnerability, excluding any mitigation details. Description of Vulnerability:</p>
+<p>ExampleLibrary version x.y.z contains a vulnerability that could potentially allow an attacker to execute arbitrary code. The specific vulnerability has not been identified, as it depends on the implementation details of ExampleLibrary. It is recommended to upgrade to the latest version of ExampleLibrary to avoid this vulnerability..</p>
+            </div>
+            <div id="mitigationmedium_3" class="collapsible" style="margin-top: 10px;">
+                <p>Leverage the HttpOnly flag when setting a sensitive cookie in a response. Attackers might also be able to use XMLHTTPResponse to read the headers directly and obtain the cookie. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access to cookies.</p>
+            </div>
+        </div>
+        
+  <h2>Low Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie No HttpOnly Flag</h3>
+            <p><strong>Count:</strong> 174</p>
+            <p><strong>Count %:</strong> (1,160.0%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1004.html" target="_blank">1004</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_1', 'mitigationlow_1')">Description</button>
+                <button onclick="toggleSection('mitigationlow_1', 'descriptionlow_1')">Mitigation</button>
+                <button onclick="askQuestion('low_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_1', 'mitigationlow_1')">Collapse</button>
+            <div id="descriptionlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible. Solution Ensure that the HttpOnly flag is set for all cookies. Other Info References  A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. Provide only the description of the vulnerability, excluding any mitigation details. If this is a session cookie then session hijacking may be possible..</p>
+            </div>
+            <div id="mitigationlow_1" class="collapsible" style="margin-top: 10px;">
+                <p>Always set the secure attribute when the cookie should sent via HTTPS only. Always always use HTTPS only if the cookie is sent via a HTTPS connection. Always use the HTTPS only option when sending the cookie via the HTTPS protocol. Always set the HTTPS attribute when sending a cookie via HTTPS.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie Without Secure Flag</h3>
+            <p><strong>Count:</strong> 87</p>
+            <p><strong>Count %:</strong> (580.0%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/614.html" target="_blank">614</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_2', 'mitigationlow_2')">Description</button>
+                <button onclick="toggleSection('mitigationlow_2', 'descriptionlow_2')">Mitigation</button>
+                <button onclick="askQuestion('low_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_2', 'mitigationlow_2')">Collapse</button>
+            <div id="descriptionlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Summary A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections. Solution Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information. Other Info References  A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections. Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections, potentially exposing sensitive information or session tokens to eavesdropping. This vulnerability can be exploited by an attacker who intercepts the unencrypted connection between the client and the server. To mitigate this vulnerability, always ensure that cookies containing sensitive information or session tokens are passed using an encrypted channel, and that the secure flag is set for such cookies..</p>
+            </div>
+            <div id="mitigationlow_2" class="collapsible" style="margin-top: 10px;">
+                <p>Set the SameSite attribute of a sensitive cookie to 'Lax' or 'Strict' This instructs the browser to apply this cookie only to same-domain requests. This provides a good Defense in Depth against CSRF attacks. While this mitigation is effective for protecting cookies from a browser's own scripting engine, third-party components or plugins may have their own engines that allow access.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie with SameSite Attribute None</h3>
+            <p><strong>Count:</strong> 88</p>
+            <p><strong>Count %:</strong> (586.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_3', 'mitigationlow_3')">Description</button>
+                <button onclick="toggleSection('mitigationlow_3', 'descriptionlow_3')">Mitigation</button>
+                <button onclick="askQuestion('low_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_3', 'mitigationlow_3')">Collapse</button>
+            <div id="descriptionlow_3" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10054-1 Cookie without SameSite Attribute 10054-2 Cookie with SameSite Attribute None 10054-3 Cookie with Invalid SameSite Attribute  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>This rule detects cookies that do not have the SameSite attribute set, which can lead to cross-site scripting (XSS) attacks. It also detects cookies with the SameSite attribute set to None, which can lead to clickjacking attacks. Finally, it detects cookies with an invalid SameSite attribute code, which can lead to various security vulnerabilities..</p>
+            </div>
+            <div id="mitigationlow_3" class="collapsible" style="margin-top: 10px;">
+                <p>encrypt the data using reliable, confidentiality-protecting cryptographic protocols. Use SSL for the entire session from login to logout, not just for the initial login page. Use tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling. These may be more effective than strictly automated techniques.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie without SameSite Attribute</h3>
+            <p><strong>Count:</strong> 88</p>
+            <p><strong>Count %:</strong> (586.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_4', 'mitigationlow_4')">Description</button>
+                <button onclick="toggleSection('mitigationlow_4', 'descriptionlow_4')">Mitigation</button>
+                <button onclick="askQuestion('low_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_4', 'mitigationlow_4')">Collapse</button>
+            <div id="descriptionlow_4" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10054-1 Cookie without SameSite Attribute 10054-2 Cookie with SameSite Attribute None 10054-3 Cookie with Invalid SameSite Attribute  Provide only the description of the vulnerability, excluding any mitigation details. Description:</p>
+<p>This rule detects cookies that do not have the SameSite attribute set, which can lead to cross-site scripting (XSS) attacks. It also detects cookies with the SameSite attribute set to None, which can lead to clickjacking attacks. Finally, it detects cookies with an invalid SameSite attribute code, which can lead to various security vulnerabilities..</p>
+            </div>
+            <div id="mitigationlow_4" class="collapsible" style="margin-top: 10px;">
+                <p>Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Architects and designers should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges. Always be careful when interfacing with a compartment outside of the safe area.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Strict-Transport-Security Header Not Set</h3>
+            <p><strong>Count:</strong> 85</p>
+            <p><strong>Count %:</strong> (566.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/319.html" target="_blank">319</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_5', 'mitigationlow_5')">Description</button>
+                <button onclick="toggleSection('mitigationlow_5', 'descriptionlow_5')">Mitigation</button>
+                <button onclick="askQuestion('low_5')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_5', 'mitigationlow_5')">Collapse</button>
+            <div id="descriptionlow_5" class="collapsible" style="margin-top: 10px;">
+                <p>Alerts 10035-1 Strict-Transport-Security Header Not Set 10035-2 Strict-Transport-Security Disabled 10035-3 Strict-Transport-Security Multiple Header Entries (Non-compliant with Spec) 10035-4 Strict-Transport-Security Header on Plain HTTP Response 10035-5 Strict-Transport-Security Missing Max-Age (Non-compliant with Spec) 10035-6 Strict-Transport-Security Defined via META (Non-compliant with Spec) 10035-7 Strict-Transport-Security Max-Age Malformed (Non-compliant with Spec) 10035-8 Strict-Transport-Security Malformed Content (Non-compliant with Spec)  Provide only the description of the vulnerability, excluding any mitigation details.</p>
+<p>This is a description of the vulnerabilities related to Strict Transport Security (TLS) in ZAP Proxy:</p>
+<p>1. Strict-Transport-Security Header Not Set:</p>
+<p>This vulnerability occurs when the Strict-Transport-Security header is not set in the response. This can lead to downgrade attacks, where an attacker forces the use of insecure protocols.</p>
+<p>2. Strict-Transport-Security Disabled:</p>
+<p>This vulnerability occurs when the Strict-Transport-Security header is disabled in the response. This can lead to attacks where an attacker forces the use of insecure protocols.</p>
+<p>3. Strict-Transport-Security Multiple Header Entries (Non-compliant with Spec):</p>
+<p>This vulnerability occurs when the Strict-Transport-Security header is included in multiple header entries in the response, which is not compliant with the specification.</p>
+<p>4. Strict-Transport-Security Header on Plain HTTP Response:</p>
+<p>This vulnerability occurs when the Strict-Transport-Security header is included in the response using plain HTTP, which is not compliant with the specification.</p>
+<p>5. Strict-Transport-Security Missing Max-Age (Non-compliant with Spec):</p>
+<p>This vulnerability occurs when the Strict-Transport-Security header does not include a Max-Age value, which is required by the specification.</p>
+<p>6. Strict-Transport-Security Defined via META:</p>
+<p>This vulnerability occurs when the Strict-Transport-Security header is defined via the.</p>
+            </div>
+            <div id="mitigationlow_5" class="collapsible" style="margin-top: 10px;">
+                <p>Use a restrictive caching policy for forms and web pages that potentially contain sensitive information. Do not store unnecessarily sensitive information in the cache. Consider using encryption in the caches. Use a policy to protect information stored in cache. Use encryption in caches to protect data stored in caches.</p>
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">X-Content-Type-Options Header Missing</h3>
+            <p><strong>Count:</strong> 80</p>
+            <p><strong>Count %:</strong> (533.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_6', 'mitigationlow_6')">Description</button>
+                <button onclick="toggleSection('mitigationlow_6', 'descriptionlow_6')">Mitigation</button>
+                <button onclick="askQuestion('low_6')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_6', 'mitigationlow_6')">Collapse</button>
+            <div id="descriptionlow_6" class="collapsible" style="margin-top: 10px;">
+                <p>Summary The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing. Solution Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages. If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing. Other Info This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type. At "High" threshold this scan rule will not alert on client or server error responses. References  The Anti-MIME-Sniffing header X-Content-Type-Options was not set to nosniff. Provide only the description of the vulnerability, excluding any mitigation details. The description of the vulnerability is that the X-Content-Type-Options header has not been set to 'nosniff', which allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. The vulnerability affects error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type..</p>
+            </div>
+            <div id="mitigationlow_6" class="collapsible" style="margin-top: 10px;">
+                <p>Assume all input is malicious. Use an "accept known good" input validation strategy. Reject any input that does not strictly conform to specifications. For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side.</p>
+            </div>
+        </div>
+        
+
+    <script>
+    function toggleSection(showId, hideId) {
+      const showElement = document.getElementById(showId);
+      const hideElement = document.getElementById(hideId);
+      
+      if (showElement.style.display === 'block') {
+        showElement.style.display = 'none';
+      } else {
+        showElement.style.display = 'block';
+        hideElement.style.display = 'none';
+      }
+    }
+
+    function collapseAll(...ids) {
+      ids.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

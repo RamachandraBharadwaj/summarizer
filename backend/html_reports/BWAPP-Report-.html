@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concise Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #333; }
+    .info { margin-bottom: 20px; }
+    .info p { margin: 5px 0; }
+    .vulnerability { position: relative; margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f8f8f8; }
+    .vulnerability h3 { margin: 0 0 5px; color: #333; }
+    .vulnerability p { margin: 0; color: #555; }
+    .button-container { display: flex; gap: 10px; margin-top: 10px; }
+    button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+    button:hover { background-color: #0056b3; }
+    .collapsible { display: none; padding: 10px; border-top: 1px solid #ddd; margin-top: 10px; background-color: #f1f1f1; color: #333; }
+    .no-vulnerabilities { color: #777; font-style: italic; margin: 10px 0; }
+    .collapse-btn { position: absolute; top: 15px; right: 15px; background-color: #dc3545; }
+    .collapse-btn:hover { background-color: #c82333; }
+    .ask-question-btn {background-color: #28a745; /* Green color for Ask Question button */} 
+    .ask-question-btn:hover {background-color: #218838; /* Darker green on hover */}
+
+  </style>
+</head>
+<body>
+  <h1>Web PenTest Report Analysis</h1>
+  <h2>Concise Report</h2>
+  <div class="info">
+    <p><strong>Company Name:</strong> bWAPP</p>
+    <p><strong>Website Link:</strong> <a href="http://localhost">http://localhost</a></p>
+    <p><strong>Date:</strong> 2025-04-20</p>
+    <p><strong>Time:</strong> 17:39:48</p>
+  </div>
+  <h2>High Risk Vulnerabilities</h2>
+  <div class="no-vulnerabilities">No vulnerabilities found</div>
+  <h2>Medium Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Absence of Anti-CSRF Tokens</h3>
+            <p><strong>Count:</strong> 4</p>
+            <p><strong>Count %:</strong> (22.2%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/352.html" target="_blank">352</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_1', 'mitigationmedium_1')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_1', 'descriptionmedium_1')">Mitigation</button>
+                <button onclick="askQuestion('medium_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_1', 'mitigationmedium_1')">Collapse</button>
+            <div id="descriptionmedium_1" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationmedium_1" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Content Security Policy (CSP) Header Not Set</h3>
+            <p><strong>Count:</strong> 8</p>
+            <p><strong>Count %:</strong> (44.4%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_2', 'mitigationmedium_2')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_2', 'descriptionmedium_2')">Mitigation</button>
+                <button onclick="askQuestion('medium_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_2', 'mitigationmedium_2')">Collapse</button>
+            <div id="descriptionmedium_2" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationmedium_2" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Directory Browsing</h3>
+            <p><strong>Count:</strong> 3</p>
+            <p><strong>Count %:</strong> (16.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/548.html" target="_blank">548</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_3', 'mitigationmedium_3')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_3', 'descriptionmedium_3')">Mitigation</button>
+                <button onclick="askQuestion('medium_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_3', 'mitigationmedium_3')">Collapse</button>
+            <div id="descriptionmedium_3" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationmedium_3" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Hidden File Found</h3>
+            <p><strong>Count:</strong> 2</p>
+            <p><strong>Count %:</strong> (11.1%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/538.html" target="_blank">538</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_4', 'mitigationmedium_4')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_4', 'descriptionmedium_4')">Mitigation</button>
+                <button onclick="askQuestion('medium_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_4', 'mitigationmedium_4')">Collapse</button>
+            <div id="descriptionmedium_4" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationmedium_4" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Missing Anti-clickjacking Header</h3>
+            <p><strong>Count:</strong> 6</p>
+            <p><strong>Count %:</strong> (33.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1021.html" target="_blank">1021</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_5', 'mitigationmedium_5')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_5', 'descriptionmedium_5')">Mitigation</button>
+                <button onclick="askQuestion('medium_5')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_5', 'mitigationmedium_5')">Collapse</button>
+            <div id="descriptionmedium_5" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationmedium_5" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Parameter Tampering</h3>
+            <p><strong>Count:</strong> 7</p>
+            <p><strong>Count %:</strong> (38.9%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/472.html" target="_blank">472</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionmedium_6', 'mitigationmedium_6')">Description</button>
+                <button onclick="toggleSection('mitigationmedium_6', 'descriptionmedium_6')">Mitigation</button>
+                <button onclick="askQuestion('medium_6')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionmedium_6', 'mitigationmedium_6')">Collapse</button>
+            <div id="descriptionmedium_6" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationmedium_6" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+  <h2>Low Risk Vulnerabilities</h2>
+  
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie No HttpOnly Flag</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (5.6%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1004.html" target="_blank">1004</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_1', 'mitigationlow_1')">Description</button>
+                <button onclick="toggleSection('mitigationlow_1', 'descriptionlow_1')">Mitigation</button>
+                <button onclick="askQuestion('low_1')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_1', 'mitigationlow_1')">Collapse</button>
+            <div id="descriptionlow_1" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationlow_1" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Cookie without SameSite Attribute</h3>
+            <p><strong>Count:</strong> 1</p>
+            <p><strong>Count %:</strong> (5.6%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/1275.html" target="_blank">1275</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_2', 'mitigationlow_2')">Description</button>
+                <button onclick="toggleSection('mitigationlow_2', 'descriptionlow_2')">Mitigation</button>
+                <button onclick="askQuestion('low_2')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_2', 'mitigationlow_2')">Collapse</button>
+            <div id="descriptionlow_2" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationlow_2" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s)</h3>
+            <p><strong>Count:</strong> 6</p>
+            <p><strong>Count %:</strong> (33.3%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_3', 'mitigationlow_3')">Description</button>
+                <button onclick="toggleSection('mitigationlow_3', 'descriptionlow_3')">Mitigation</button>
+                <button onclick="askQuestion('low_3')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_3', 'mitigationlow_3')">Collapse</button>
+            <div id="descriptionlow_3" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationlow_3" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">Server Leaks Version Information via "Server" HTTP Response Header Field</h3>
+            <p><strong>Count:</strong> 23</p>
+            <p><strong>Count %:</strong> (127.8%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">200</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_4', 'mitigationlow_4')">Description</button>
+                <button onclick="toggleSection('mitigationlow_4', 'descriptionlow_4')">Mitigation</button>
+                <button onclick="askQuestion('low_4')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_4', 'mitigationlow_4')">Collapse</button>
+            <div id="descriptionlow_4" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationlow_4" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+        <div class="vulnerability" style="margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">X-Content-Type-Options Header Missing</h3>
+            <p><strong>Count:</strong> 21</p>
+            <p><strong>Count %:</strong> (116.7%)</p>
+            <p><strong>CWE ID:</strong> <a href="https://cwe.mitre.org/data/definitions/693.html" target="_blank">693</a></p>
+            <div class="button-container" style="margin-top: 10px;">
+                <button onclick="toggleSection('descriptionlow_5', 'mitigationlow_5')">Description</button>
+                <button onclick="toggleSection('mitigationlow_5', 'descriptionlow_5')">Mitigation</button>
+                <button onclick="askQuestion('low_5')" class="ask-question-btn">Ask Question</button>
+            </div>
+            <button class="collapse-btn" onclick="collapseAll('descriptionlow_5', 'mitigationlow_5')">Collapse</button>
+            <div id="descriptionlow_5" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+            <div id="mitigationlow_5" class="collapsible" style="margin-top: 10px;">
+                
+            </div>
+        </div>
+        
+
+    <script>
+    function toggleSection(showId, hideId) {
+      const showElement = document.getElementById(showId);
+      const hideElement = document.getElementById(hideId);
+      
+      if (showElement.style.display === 'block') {
+        showElement.style.display = 'none';
+      } else {
+        showElement.style.display = 'block';
+        hideElement.style.display = 'none';
+      }
+    }
+
+    function collapseAll(...ids) {
+      ids.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
